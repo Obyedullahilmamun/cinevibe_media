@@ -1,41 +1,88 @@
-@extends('layouts.admin_master')
+{{-- @extends('layouts.app')
 
-@section('body')
-    <div class="container">
-        <div class="flex justify-between my-5">
-            <h2 class="text-red-500 text-xl">Edit - {{ $ourPost->name }}</h2>
-            <a href="{{ route('videos.index') }}" class="bg-green-600 text-white rounded py-2 px-4">← Back to Videos</a>
-        </div>
-
-        <form method="POST" action="{{ route('videos.update', $ourPost->id) }}" enctype="multipart/form-data">
-            @csrf
-            @method('POST') <!-- Optional: use @method('PUT') if route supports PUT -->
-
-            <div class="flex flex-col gap-5">
-                <label for="">Name</label>
-                <input type="text" name="name" value="{{ old('name', $ourPost->name) }}" class="border p-2">
-
-                @error('name')
-                    <p class="text-red-600">{{ $message }}</p>
-                @enderror
-
-                <label for="">Description</label>
-                <textarea name="description" id="description" rows="8" class="border p-2">{{ old('description', $ourPost->description) }}</textarea>
-
-                @error('description')
-                    <p class="text-red-600">{{ $message }}</p>
-                @enderror
-
-                <label for="">Select Image</label>
-                <input type="file" name="image" class="border p-2">
-                @error('image')
-                    <p class="text-red-600">{{ $message }}</p>
-                @enderror
-
-                <div>
-                    <button type="submit" class="bg-green-500 text-white py-2 px-4 rounded">Update</button>
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="mb-0">Edit Video</h2>
+                </div>
+                <div class="card-body">
+                    <form action="{{ route('admin-videos.update', $video->id) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <input type="text" class="form-control" id="description" 
+                                   name="description" value="{{ $video->description }}" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="video_url" class="form-label">YouTube URL</label>
+                            <input type="url" class="form-control" id="video_url" 
+                                   name="video_url" value="{{ $video->video_url }}" required>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between">
+                            <a href="{{ route('admin-videos.index') }}" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left me-1"></i>Cancel
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-1"></i>Update
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </form>
+        </div>
+    </div>
+</div>
+@endsection --}}
+
+
+<!-- resources/views/videos/edit.blade.php -->
+@extends('layouts.app')
+
+@section('title', 'Edit Video')
+
+@section('header')
+    <h1>Edit Video</h1>
+@endsection
+
+@section('content')
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <form action="{{ route('admin-videos.update', $video->id) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <input type="text" class="form-control" id="description" name="description"
+                                value="{{ $video->description }}" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="video_url" class="form-label">YouTube URL</label>
+                            <input type="url" class="form-control" id="video_url" name="video_url"
+                                value="{{ $video->video_url }}" required>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a href="{{ route('admin-videos.index') }}" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left me-1"></i> Cancel
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-1"></i> Update Video
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

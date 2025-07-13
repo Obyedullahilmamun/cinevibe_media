@@ -1,0 +1,44 @@
+@extends('layouts.admin_master')
+
+@section('body')
+    <main class="p-6 max-w-2xl mx-auto bg-white rounded shadow">
+        <h2 class="text-2xl font-bold mb-4">✏️ Edit Gallery Item</h2>
+
+        @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                <ul class="list-disc pl-5">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form method="POST" action="{{ route('admin-gallery.update', $gallery->id) }}" enctype="multipart/form-data">
+
+
+            @csrf
+            @method('PUT')
+
+            <div class="mb-4">
+                <label class="block text-gray-700 font-semibold mb-1">Description</label>
+                <textarea name="description" rows="3"
+                    class="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring focus:border-blue-300">{{ $gallery->description }}</textarea>
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 font-semibold mb-1">Current Image</label>
+                <img src="{{ asset('/' . $gallery->image_path) }}" class="w-40 h-40 object-cover rounded mb-2"
+                    alt="Gallery Image">
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 font-semibold mb-1">Change Image (optional)</label>
+                <input type="file" name="image" accept="image/*" class="w-full border border-gray-300 p-2 rounded">
+            </div>
+
+            <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Update</button>
+            <a href="{{ route('admin-gallery.index') }}" class="ml-2 text-gray-600 hover:underline">← Cancel</a>
+        </form>
+    </main>
+@endsection

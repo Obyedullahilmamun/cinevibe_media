@@ -1,91 +1,51 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.admin_master')
+@section('title', 'Video Gallery')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Breeze Project</title>
-
-    <!-- Tailwind + Fonts (Breeze default) -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-
-<body
-    class="antialiased bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400 selection:bg-red-500 selection:text-white">
-    <div
-        class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker dark:bg-dots-lighter bg-center">
-        @if (Route::has('login'))
-            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                @auth
-                    <a href="{{ url('/dashboard') }}"
-                        class="font-semibold hover:text-gray-900 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                        Dashboard
-                    </a>
-                @else
-                    <a href="{{ route('login') }}"
-                        class="font-semibold hover:text-gray-900 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                        Log In
-                    </a>
-
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}"
-                            class="ml-4 font-semibold hover:text-gray-900 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                            Register
-                        </a>
-                    @endif
-                @endauth
-            </div>
-        @endif
-
-        <!-- Welcome Message + BDT Time & Date -->
-        <div class="text-center mt-20 sm:mt-0 px-4">
-            <h1 class="text-5xl font-extrabold text-indigo-700 dark:text-indigo-300 mb-6 drop-shadow">
-                Welcome to Breeze Project
-            </h1>
-
-            <div class="mt-4 p-6 bg-white dark:bg-gray-800 rounded-xl shadow-xl inline-block">
-                <p class="text-4xl font-bold text-gray-800 dark:text-gray-200 mb-4">
-                    📅 <span id="current-date" class="text-green-600 dark:text-green-400"></span>
-                </p>
-                <p class="text-5xl font-extrabold text-blue-700 dark:text-blue-400 tracking-wide">
-                    🕒 <span id="current-time"></span> <span class="text-lg text-gray-500">(BDT)</span>
-                </p>
-
-            </div>
-        </div>
+@section('header')
+    <div class="d-flex justify-content-between align-items-center">
+        <h1 class="m-0">Video Gallery</h1>
+        <a href="{{ route('admin-videos.create') }}" class="btn btn-primary">
+            <i class="fas fa-plus me-2"></i> Add Video
+        </a>
     </div>
+@endsection
 
-    <!-- Script to Show BDT Time & Date -->
-    <script>
-        function updateBDTTime() {
-            const bdtOffset = 6 * 60; // BDT is UTC+6
-            const now = new Date();
-            const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-            const bdt = new Date(utc + (bdtOffset * 60000));
+@section('content')
+    @if (session('success'))
+        <div class="alert alert-success alert-dismissible fade show">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    @endif
 
-            const optionsDate = {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            };
-            const optionsTime = {
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: true
-            };
-
-            document.getElementById('current-date').textContent = bdt.toLocaleDateString('en-BD', optionsDate);
-            document.getElementById('current-time').textContent = bdt.toLocaleTimeString('en-BD', optionsTime);
-        }
-
-        updateBDTTime();
-        setInterval(updateBDTTime, 1000); // Update every second
-    </script>
-</body>
-
-</html>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        @foreach ($videos as $video)
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/{{ $video->video_path }}" frameborder="0"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $video->description }}</h5>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <div class="d-flex justify-content-between">
+                            <a href="{{ route('admin-videos.edit', $video->id) }}" class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-edit me-1"></i> Edit
+                            </a>
+                            <form action="{{ route('admin-videos.destroy', $video->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-outline-danger"
+                                    onclick="return confirm('Delete this video?')">
+                                    <i class="fas fa-trash me-1"></i> Delete
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+@endsection

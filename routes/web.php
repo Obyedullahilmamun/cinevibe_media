@@ -1,14 +1,11 @@
 <?php
 
-use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
-// Public route
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+use App\Http\Controllers\AdminGalleryController;
+use App\Http\Controllers\AdminVideoController;
+// use App\Models\Post;
 
 
 // Dashboard
@@ -16,17 +13,30 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
+Route::prefix('admin-gallery')->middleware(['auth', 'verified'])->name('admin-gallery.')->group(function () {
+    Route::get('/', [AdminGalleryController::class, 'index'])->name('index');
+    Route::get('/create', [AdminGalleryController::class, 'create'])->name('create');
+    Route::post('/', [AdminGalleryController::class, 'store'])->name('store');
+    Route::get('/{gallery}/edit', [AdminGalleryController::class, 'edit'])->name('edit');
+    Route::put('/{gallery}', [AdminGalleryController::class, 'update'])->name('update');
+    Route::delete('/{gallery}', [AdminGalleryController::class, 'destroy'])->name('destroy');
+});
+
+
+
+Route::prefix('admin-videos')->middleware(['auth', 'verified'])->name('admin-videos.')->group(function () {
+    Route::get('/', [AdminVideoController::class, 'index'])->name('index');
+    Route::get('/create', [AdminVideoController::class, 'create'])->name('create');
+    Route::post('/', [AdminVideoController::class, 'store'])->name('store');
+    Route::get('/{video}/edit', [AdminVideoController::class, 'edit'])->name('edit');
+    Route::put('/{video}', [AdminVideoController::class, 'update'])->name('update');
+    Route::delete('/{video}', [AdminVideoController::class, 'destroy'])->name('destroy');
+});
+
+
 // Authenticated routes
 Route::middleware('auth')->group(function () {
-
-    // Route::get('/dashboardvideos', function () {
-    //     return view('pages.videos');
-    // })->name('dashboardvideos');
-
-    // Route::get('/dashboardvideos', function () {
-    //     return redirect()->route('videos.index');
-    // })->name('dashboardvideos');
-
 
 
     // Profile routes

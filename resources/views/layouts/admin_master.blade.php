@@ -19,15 +19,30 @@
         <!-- Sidebar -->
         <aside class="w-64 bg-white shadow hidden md:block">
             <div class="h-16 flex items-center justify-center border-b">
-                <h1 class="text-xl font-bold text-gray-700">Company Logo</h1>
+                <h1 class="text-xl font-bold text-gray-700">Cinevibe</h1>
             </div>
 
             <nav class="mt-6">
                 <a href="{{ route('dashboard') }}" class="block py-3 px-6 text-gray-700 hover:bg-gray-200">Dashboard</a>
-                <a href="{{ route('dashboardvideos') }}"
+            </nav>
+
+            {{-- new code --}}
+            <nav class="mt-6">
+                {{-- <a href="{{ route('admin-gallery') }}"
+                    class="block py-3 px-6 text-gray-700 hover:bg-gray-200">Gallery</a> --}}
+                {{-- <a href="{{ route('gallery.index') }}" --}}
+                <a href="{{ route('admin-gallery.index') }}" class="block py-3 px-6 text-gray-700 hover:bg-gray-200">
+                    Gallery
+                </a>
+
+
+            </nav>
+
+            <nav class="mt-6">
+                {{-- <a href="{{ route('admin-videos') }}" class="block py-3 px-6 text-gray-700 hover:bg-gray-200">Videos</a> --}}
+                <a href="{{ route('admin-videos.index') }}"
                     class="block py-3 px-6 text-gray-700 hover:bg-gray-200">Videos</a>
-                <a href="{{ route('dashboardgallery') }}"
-                    class="block py-3 px-6 text-gray-700 hover:bg-gray-200">Gallery</a>
+
             </nav>
         </aside>
 
@@ -69,6 +84,7 @@
                     </div>
                 </div>
             </header>
+
             @yield('body')
         </div>
     </div>
