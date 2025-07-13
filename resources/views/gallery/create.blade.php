@@ -18,6 +18,13 @@
 
             @csrf
 
+
+            <div class="mb-4">
+            <label class="block text-gray-700 font-semibold mb-1">Title (optional)</label>
+            <input type="text" name="title" value="{{ old('title') }}"
+            class="w-full border border-gray-300 p-2 rounded">
+            </div>
+
             <div class="mb-4">
                 <label class="block text-gray-700 font-semibold mb-1">Description</label>
                 <textarea name="description" rows="3"

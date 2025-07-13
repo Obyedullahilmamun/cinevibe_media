@@ -11,7 +11,7 @@ class AdminGalleryController extends Controller
 {
     public function index()
     {
-        $galleries = Gallery::all();
+        $galleries = Gallery::latest()->get();
         return view('admin-gallery', compact('galleries'));
     }
 
@@ -23,29 +23,30 @@ class AdminGalleryController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'description' => 'required',
-            'image'       => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'title' => 'nullable|string|max:255',
+            'description' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:6144', // Adjust the 'max' value to customize
         ]);
 
-        /* ── move file straight to /public/gallery ───────────── */
-        $file      = $request->file('image');
-        $filename  = Str::uuid() . '.' . $file->extension();               // unique
+        $file = $request->file('image');
+        $filename = Str::uuid() . '.' . $file->extension();
         $targetDir = public_path('gallery');
 
-        if (! is_dir($targetDir)) {
-            mkdir($targetDir, 0755, true);                             // create the folder once
+        if (!is_dir($targetDir)) {
+            mkdir($targetDir, 0755, true);
         }
 
-        $file->move($targetDir, $filename);                            // ← no Storage facade
+        $file->move($targetDir, $filename);
 
         Gallery::create([
+            'title' => $validated['title'],
             'description' => $validated['description'],
-            'image_path'  => 'gallery/' . $filename,                     // save relative path
+            'image_path' => 'gallery/' . $filename,
         ]);
 
         return redirect()
             ->route('admin-gallery.index')
-            ->with('success', 'Gallery item added.');
+            ->with('success', 'Gallery item added successfully!');
     }
 
     public function edit(Gallery $gallery)
@@ -56,44 +57,47 @@ class AdminGalleryController extends Controller
     public function update(Request $request, Gallery $gallery)
     {
         $validated = $request->validate([
-            'description' => 'required',
-            'image'       => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'title' => 'nullable|string|max:255',
+            'description' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:6144', // Adjust the 'max' value to customize
         ]);
 
         if ($request->hasFile('image')) {
-            /* delete old file (best-effort) */
+            // Delete old file
             $old = public_path($gallery->image_path);
             if (is_file($old)) {
                 @unlink($old);
             }
 
-            $file      = $request->file('image');
-            $filename  = Str::uuid() . '.' . $file->extension();
+            // Save new file
+            $file = $request->file('image');
+            $filename = Str::uuid() . '.' . $file->extension();
             $file->move(public_path('gallery'), $filename);
-
             $gallery->image_path = 'gallery/' . $filename;
         }
 
+        $gallery->title = $validated['title'];
         $gallery->description = $validated['description'];
         $gallery->save();
 
         return redirect()
             ->route('admin-gallery.index')
-            ->with('success', 'Gallery item updated.');
+            ->with('success', 'Gallery item updated successfully!');
     }
-
 
     public function destroy(Gallery $gallery)
     {
+        // Delete image file
         $full = public_path($gallery->image_path);
         if (is_file($full)) {
             @unlink($full);
         }
 
+        // Delete record
         $gallery->delete();
 
         return redirect()
             ->route('admin-gallery.index')
-            ->with('success', 'Gallery item deleted.');
+            ->with('success', 'Gallery item deleted successfully!');
     }
 }

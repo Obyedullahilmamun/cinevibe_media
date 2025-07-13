@@ -1,88 +1,56 @@
-{{-- @extends('layouts.app')
+@extends('layouts.admin_master')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="mb-0">Edit Video</h2>
-                </div>
-                <div class="card-body">
-                    <form action="{{ route('admin-videos.update', $video->id) }}" method="POST">
-                        @csrf
-                        @method('PUT')
-                        
-                        <div class="mb-3">
-                            <label for="description" class="form-label">Description</label>
-                            <input type="text" class="form-control" id="description" 
-                                   name="description" value="{{ $video->description }}" required>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label for="video_url" class="form-label">YouTube URL</label>
-                            <input type="url" class="form-control" id="video_url" 
-                                   name="video_url" value="{{ $video->video_url }}" required>
-                        </div>
-                        
-                        <div class="d-flex justify-content-between">
-                            <a href="{{ route('admin-videos.index') }}" class="btn btn-secondary">
-                                <i class="fas fa-arrow-left me-1"></i>Cancel
-                            </a>
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save me-1"></i>Update
-                            </button>
-                        </div>
-                    </form>
-                </div>
+@section('body')
+    <main class="p-6 max-w-2xl mx-auto bg-white rounded shadow">
+        <h2 class="text-2xl font-bold mb-4">✏️ Edit Video</h2>
+
+        @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                <ul class="list-disc pl-5">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
-        </div>
-    </div>
-</div>
-@endsection --}}
+        @endif
 
+        <form method="POST" action="{{ route('admin-videos.update', $video->id) }}">
+            @csrf
+            @method('PUT')
 
-<!-- resources/views/videos/edit.blade.php -->
-@extends('layouts.app')
-
-@section('title', 'Edit Video')
-
-@section('header')
-    <h1>Edit Video</h1>
-@endsection
-
-@section('content')
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-body">
-                    <form action="{{ route('admin-videos.update', $video->id) }}" method="POST">
-                        @csrf
-                        @method('PUT')
-
-                        <div class="mb-3">
-                            <label for="description" class="form-label">Description</label>
-                            <input type="text" class="form-control" id="description" name="description"
-                                value="{{ $video->description }}" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="video_url" class="form-label">YouTube URL</label>
-                            <input type="url" class="form-control" id="video_url" name="video_url"
-                                value="{{ $video->video_url }}" required>
-                        </div>
-
-                        <div class="d-flex justify-content-between">
-                            <a href="{{ route('admin-videos.index') }}" class="btn btn-secondary">
-                                <i class="fas fa-arrow-left me-1"></i> Cancel
-                            </a>
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save me-1"></i> Update Video
-                            </button>
-                        </div>
-                    </form>
-                </div>
+            <!-- Title Field -->
+            <div class="mb-4">
+                <label class="block text-gray-700 font-semibold mb-1">Title</label>
+                <input type="text" name="title" value="{{ old('title', $video->title) }}"
+                    class="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring focus:border-blue-300"
+                    required>
             </div>
-        </div>
-    </div>
+
+            <!-- Description Field -->
+            <div class="mb-4">
+                <label class="block text-gray-700 font-semibold mb-1">Description</label>
+                <textarea name="description" rows="3"
+                    class="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring focus:border-blue-300">{{ old('description', $video->description) }}</textarea>
+            </div>
+
+            <!-- Current Video Preview -->
+            <div class="mb-4">
+                <label class="block text-gray-700 font-semibold mb-1">Current Video</label>
+                <iframe class="w-full h-48" src="https://www.youtube.com/embed/{{ $video->video_path }}" frameborder="0"
+                    allowfullscreen></iframe>
+            </div>
+
+            <!-- YouTube URL Field -->
+            <div class="mb-4">
+                <label class="block text-gray-700 font-semibold mb-1">Change YouTube URL</label>
+                <input type="url" name="video_url" value="{{ old('video_url', $video->video_url) }}"
+                    class="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring focus:border-blue-300"
+                    placeholder="https://www.youtube.com/watch?v=..." required>
+                <p class="text-gray-500 text-sm mt-1">Paste the full YouTube URL</p>
+            </div>
+
+            <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Update</button>
+            <a href="{{ route('admin-videos.index') }}" class="ml-2 text-gray-600 hover:underline">← Cancel</a>
+        </form>
+    </main>
 @endsection

@@ -77,7 +77,7 @@ Route::get('/fashion-photography', [HomeController::class, 'fashionphotography']
 
 Route::get('/feature-film', [HomeController::class, 'featurefilm'])->name('feature-film');
 
-Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');
+Route::get('/photo', [HomeController::class, 'photo'])->name('gallery');
 
 Route::get('/kids-photography', [HomeController::class, 'kidsphotography'])->name('kids-photography');
 

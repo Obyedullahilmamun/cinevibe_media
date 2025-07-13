@@ -18,36 +18,48 @@ class AdminVideoController extends Controller
         return view('videos.create');
     }
 
+
     public function store(Request $request)
     {
-        $request->validate([
-            'description' => 'required|string|max:255',
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
             'video_url' => 'required|url'
         ]);
 
-        $videoId = $this->getYouTubeId($request->video_url);
-        if (!$videoId) {
-            return back()->withErrors(['video_url' => 'Invalid YouTube URL'])->withInput();
+        try {
+            // Extract YouTube ID
+            $videoId = $this->getYouTubeId($request->video_url);
+            if (!$videoId) {
+                return back()->withErrors(['video_url' => 'Invalid YouTube URL'])->withInput();
+            }
+
+            // Create video record
+            Video::create([
+                'title' => $request->title,
+                'description' => $request->description,
+                'video_url' => $request->video_url,
+                'video_path' => $videoId
+            ]);
+
+            return redirect()->route('admin-videos.index')
+                ->with('success', 'Video added successfully!');
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => 'Error saving video: ' . $e->getMessage()])->withInput();
         }
-
-        Video::create([
-            'description' => $request->description,
-            'video_url' => $request->video_url,
-            'video_path' => $videoId
-        ]);
-
-        return redirect()->route('admin-videos.index')
-               ->with('success', 'Video added successfully!');
     }
+
 
     public function edit(Video $video)
     {
         return view('videos.edit', compact('video'));
     }
 
+
     public function update(Request $request, Video $video)
     {
         $request->validate([
+            'title' => 'required|string|max:255', // Added title validation
             'description' => 'required|string|max:255',
             'video_url' => 'required|url'
         ]);
@@ -58,28 +70,37 @@ class AdminVideoController extends Controller
         }
 
         $video->update([
+            'title' => $request->title, // Added title update
             'description' => $request->description,
             'video_url' => $request->video_url,
             'video_path' => $videoId
         ]);
 
         return redirect()->route('admin-videos.index')
-               ->with('success', 'Video updated successfully!');
+            ->with('success', 'Video updated successfully!');
     }
+
 
     public function destroy(Video $video)
     {
         $video->delete();
         return redirect()->route('admin-videos.index')
-               ->with('success', 'Video deleted successfully!');
+            ->with('success', 'Video deleted successfully!');
     }
+
 
     private function getYouTubeId($url)
     {
-        // More reliable YouTube ID extraction
-        $pattern = '%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/\s]{11})%i';
-        if (preg_match($pattern, $url, $match)) {
-            return $match[1];
+        $patterns = [
+            '%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/]{11})%i',
+            '%(?:youtube\.com/watch\?v=|youtu\.be/)([^"&?/]{11})%i',
+            '%(?:youtube\.com/embed/)([^"&?/]{11})%i'
+        ];
+
+        foreach ($patterns as $pattern) {
+            if (preg_match($pattern, $url, $match)) {
+                return $match[1];
+            }
         }
         return null;
     }

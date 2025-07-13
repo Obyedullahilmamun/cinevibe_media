@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Video;
+use App\Models\Gallery;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('template.index');
+        $videos = Video::latest()->get();
+        return view('template.index', compact('videos'));
     }
 
     public function about()
@@ -86,9 +89,11 @@ class HomeController extends Controller
         return view('template.feature-film');
     }
 
-    public function gallery()
+    public function photo()
     {
-        return view('template.gallery');
+        $galleries = Gallery::latest()->get();
+        $videos = Video::latest()->get();
+        return view('template.gallery', compact('galleries', 'videos'));
     }
 
     public function kidsphotography()

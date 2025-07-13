@@ -1,5 +1,4 @@
 @extends('layouts.admin_master')
-
 @section('body')
     <!-- Main Section -->
     <main class="flex-1 overflow-y-auto p-6">
@@ -24,6 +23,7 @@
                 <thead class="bg-gray-100">
                     <tr>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Title</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Description</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Image</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
@@ -33,9 +33,12 @@
                     @forelse($galleries as $gallery)
                         <tr>
                             <td class="px-6 py-4 text-sm text-gray-900">{{ $gallery->id }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-900">
+                                {{ $gallery->title ?? 'No Title' }}
+                            </td>
                             <td class="px-6 py-4 text-sm text-gray-900">{{ $gallery->description }}</td>
                             <td class="px-6 py-4">
-                                <img src="{{ asset($gallery->image_path) }}" alt="…" class="h-32 w-32 object-cover">
+                                <img src="{{ asset($gallery->image_path) }}" alt="{{ $gallery->title ?? 'Gallery Image' }}" class="h-32 w-32 object-cover">
                             </td>
                             <td class="px-6 py-4 text-sm">
                                 <a href="{{ route('admin-gallery.edit', $gallery->id) }}"
@@ -52,7 +55,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4" class="px-6 py-4 text-center text-gray-500">
+                            <td colspan="5" class="px-6 py-4 text-center text-gray-500">
                                 No gallery items found.
                             </td>
                         </tr>

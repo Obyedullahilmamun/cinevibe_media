@@ -29,72 +29,7 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="bg-no-repeat bg-cover bg-center"
-            style="background-image: url('assets/img/film-production/corporate-video.jpg');">
-            <div
-             class="px-4 flex flex-col justify-center items-center gap-5 lg:py-[250px] md:py-[200px] sm:py-[150px] py-[100px] bg-black bg-opacity-40">
-             <h1 class="md:text-[80px] text-[35px] text-white font-bold uppercase text-center leading-tight">
-              Corporate Videos
-             </h1>
-             <p class="text-white text-[24px]">Cinevibe Media</p>
-             <div class="md:mt-5 mt-0">
-              <a class="uppercase bg-white px-10 py-4 rounded-lg" href="/corporate-videos.html">View More</a>
-             </div>
-            </div>
-           </div>
-           <div class="bg-no-repeat bg-cover bg-center"
-            style="background-image: url('assets/img/event-management/birthday.jpg');">
-            <div
-             class="px-4 flex flex-col justify-center items-center gap-5 lg:py-[250px] md:py-[200px] sm:py-[150px] py-[100px] bg-black bg-opacity-40">
-             <h1 class="md:text-[80px] text-[35px] text-white font-bold uppercase text-center leading-tight">
-              Event Photography
-             </h1>
-             <p class="text-white text-[24px]">Cinevibe Media</p>
-             <div class="md:mt-5 mt-0">
-              <a class="uppercase bg-white px-10 py-4 rounded-lg" href="/">View More</a>
-             </div>
-            </div>
-           </div>
-           <div class="bg-no-repeat bg-cover bg-center"
-            style="background-image: url('assets/img/photography/kids.jpg');">
-            <div
-             class="px-4 flex flex-col justify-center items-center gap-5 lg:py-[250px] md:py-[200px] sm:py-[150px] py-[100px] bg-black bg-opacity-40">
-             <h1 class="md:text-[80px] text-[35px] text-white font-bold uppercase text-center leading-tight">Kids
-              Photography
-             </h1>
-             <p class="text-white text-[24px]">Cinevibe Media</p>
-             <div class="md:mt-5 mt-0">
-              <a class="uppercase bg-white px-10 py-4 rounded-lg" href="/kids-photography.html">View More</a>
-             </div>
-            </div>
-           </div>
-           <div class="bg-no-repeat bg-cover bg-center"
-            style="background-image: url('assets/img/event-management/wedding-planning.jpg');">
-            <div
-             class="px-4 flex flex-col justify-center items-center gap-5 lg:py-[250px] md:py-[200px] sm:py-[150px] py-[100px] bg-black bg-opacity-40">
-             <h1 class="md:text-[80px] text-[35px] text-white font-bold uppercase text-center leading-tight">
-              Wedding Planning
-             </h1>
-             <p class="text-white text-[24px]">Cinevibe Media</p>
-             <div class="md:mt-5 mt-0">
-              <a class="uppercase bg-white px-10 py-4 rounded-lg" href="/wedding-planning.html">View More</a>
-             </div>
-            </div>
-           </div>
-           <div class="bg-no-repeat bg-cover bg-center"
-            style="background-image: url('assets/img/event-management/road-show/1.jpg');">
-            <div
-             class="px-4 flex flex-col justify-center items-center gap-5 lg:py-[250px] md:py-[200px] sm:py-[150px] py-[100px] bg-black bg-opacity-40">
-             <h1 class="md:text-[80px] text-[35px] text-white font-bold uppercase text-center leading-tight">Road
-              / Mall Shows
-             </h1>
-             <p class="text-white text-[24px]">Cinevibe Media</p>
-             <div class="md:mt-5 mt-0">
-              <a class="uppercase bg-white px-10 py-4 rounded-lg" href="/road-shows-mall-shows.html">View
-               More</a>
-             </div>
-            </div>
-           </div> -->
+       
             <div class="bg-no-repeat bg-cover bg-center"
                 style="background-image: url('assets/img/celibrity-management/actors.jpg');">
                 <div
@@ -204,94 +139,18 @@
         </div>
     </section>
 
-    <!-- Brands -->
-    <!-- <section class="md:py-20 py-10">
-          <span class="text-[#C1AB65] text-[18px] text-center block uppercase">The Cinevibe Media</span>
-          <h2 class="text-black text-[45px] text-center uppercase">Brands</h2>
-          <div class="max-w-screen-xl mx-auto px-4 grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 gap-5">
-           <img class="border w-full p-8 shadow-md" src="assets/img/brands/b1.png" alt="brand">
-           <img class="border w-full p-8 shadow-md" src="assets/img/brands/b2.png" alt="brand">
-           <img class="border w-full p-8 shadow-md" src="assets/img/brands/b3.png" alt="brand">
-           <img class="border w-full p-8 shadow-md" src="assets/img/brands/b4.png" alt="brand">
-           <img class="border w-full p-8 shadow-md" src="assets/img/brands/b5.png" alt="brand">
-           <img class="border w-full p-8 shadow-md" src="assets/img/brands/b6.png" alt="brand">
-           <img class="border w-full p-8 shadow-md" src="assets/img/brands/b7.png" alt="brand">
-           <img class="border w-full p-8 shadow-md" src="assets/img/brands/b8.png" alt="brand">
-           <img class="border w-full p-8 shadow-md" src="assets/img/brands/b9.png" alt="brand">
-           <img class="border w-full p-8 shadow-md" src="assets/img/brands/b10.png" alt="brand">
-           <img class="border w-full p-8 shadow-md" src="assets/img/brands/b11.png" alt="brand">
-           <img class="border w-full p-8 shadow-md" src="assets/img/brands/b12.png" alt="brand">
-           <img class="border w-full p-8 shadow-md" src="assets/img/brands/b13.png" alt="brand">
-           <img class="border w-full p-8 shadow-md" src="assets/img/brands/b14.png" alt="brand">
-           <img class="border w-full p-8 shadow-md" src="assets/img/brands/b15.png" alt="brand">
-           <img class="border w-full p-8 shadow-md" src="assets/img/brands/b16.png" alt="brand">
-          </div>
-         </section> -->
-
-    <!-- Click & Watch -->
-    <!-- <section class="bg-black md:py-20 py-10">
-          <span class="text-[#C1AB65] text-[18px] text-center block uppercase">The Cinevibe Media</span>
-          <h2 class="text-white text-[45px] text-center uppercase">Click & Watch</h2>
-          <div class="slider-click-watch w-full max-w-screen-xl mx-auto px-4">
-           <div><img src="assets/img/index/youtube.jpg" class="w-full" /></div>
-           <div><img src="assets/img/index/youtube.jpg" class="w-full" /></div>
-           <div><img src="assets/img/index/youtube.jpg" class="w-full" /></div>
-          </div>
-         </section> -->
-
     <!-- Videos -->
     <section class="bg-black md:py-20 py-10">
         <span class="text-[#C1AB65] text-[18px] text-center block uppercase">The Cinevibe Media</span>
         <h2 class="text-white md:text-[45px] text-[30px] text-center uppercase mb-5">Our Videos</h2>
         <div class="max-w-screen-xl mx-auto px-4 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5">
-            <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/S9OclTB52iY" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-            <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/SdUfrISH0Pc" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-            <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/NihwK4jLack" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-            <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/umsbndVO0Yk" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-            <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/YNLeOP4Lfcg" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-            <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/W8LewxHeBYo" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-            <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/Xv3NRNwM5bI" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-            <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/BxbY0XgYMa0" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-            <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/GSSQyPWRoOk" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-            <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/e1M9nPfS4M4" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-            <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/XfeQCxLXuuM" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-            <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/OdpwUtKpKvI" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
+            @foreach ($videos->take(12) as $video)
+                <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/{{ $video->video_path }}"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen title="{{ $video->title }}">
+                </iframe>
+            @endforeach
         </div>
     </section>
 
