@@ -39,7 +39,7 @@
 
 
             <nav class="mt-6">
-                <a href="{{ route('admin-contact') }}" class="block py-3 px-6 text-gray-700 hover:bg-gray-200">Contact
+                <a href="{{ route('admin.contact') }}" class="block py-3 px-6 text-gray-700 hover:bg-gray-200">Contact
                     Submissions</a>
             </nav>
 

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AdminContact;
+use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminVideoController;
 use App\Http\Controllers\AdminGalleryController;
@@ -15,7 +15,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::get('/admin-contact', [AdminContact::class, 'index'])->name('admin-contact');
+// Route::get('/admin-contact', [AdminContactController::class, 'index'])->name('admin-contact');
+Route::get('/admin-contact', [AdminContactController::class, 'index'])->name('admin.contact');
 
 
 
@@ -39,12 +40,28 @@ Route::prefix('admin-videos')->middleware(['auth', 'verified'])->name('admin-vid
     Route::delete('/{video}', [AdminVideoController::class, 'destroy'])->name('destroy');
 });
 
+
+
+// Public contact form submission
+Route::post('/contact-submit', [AdminContactController::class, 'store'])->name('contact.store');
+
+// Admin dashboard routes (secure with auth if needed)
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin-contact', [AdminContactController::class, 'index'])->name('admin.contact');
+    Route::get('/admin-contact/{id}', [AdminContactController::class, 'show'])->name('admin.contact.show');
+    Route::delete('/admin-contact/{id}', [AdminContactController::class, 'destroy'])->name('admin.contact.delete');
+});
+
+
+
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile'); // ← this line
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 

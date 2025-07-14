@@ -17,25 +17,30 @@
         <div class=" max-w-screen-xl mx-auto px-4 md:py-20 py-10 grid lg:grid-cols-5 grid-cols-1 gap-5">
             <div class="col-span-3">
                 <h2 class="text-[45px] font-bold">Get In Touch</h2>
-                <form class="space-y-6">
+
+                <form action="{{ route('contact.store') }}" method="POST" class="space-y-6">
+                    @csrf
                     <div class="grid sm:grid-cols-2 grid-cols-1 gap-4">
-                        <input type="text" placeholder="Name"
+                        <input type="text" name="name" placeholder="Name"
                             class="border p-3 w-full outline-none focus:border-black bg-[#F7F7F7]" required />
-                        <input type="email" placeholder="Email"
+                        <input type="email" name="email" placeholder="Email"
                             class="border p-3 w-full outline-none focus:border-black bg-[#F7F7F7]" required />
                     </div>
                     <div class="grid sm:grid-cols-2 grid-cols-1 gap-4">
-                        <input type="tel" placeholder="Phone"
+                        <input type="tel" name="phone" placeholder="Phone"
                             class="border p-3 w-full outline-none focus:border-black bg-[#F7F7F7]" required />
-                        <input type="text" placeholder="Subject"
+                        <input type="text" name="subject" placeholder="Subject"
                             class="border p-3 w-full outline-none focus:border-black bg-[#F7F7F7]" required />
                     </div>
-                    <textarea placeholder="Message" rows="6"
-                        class="border p-3 w-full outline-none focus:border-black resize-none bg-[#F7F7F7]"></textarea>
+                    <textarea name="message" placeholder="Message" rows="6"
+                        class="border p-3 w-full outline-none focus:border-black resize-none bg-[#F7F7F7]" required></textarea>
                     <button type="submit" class="bg-black text-white px-6 py-3 hover:bg-gray-800 transition">
                         Send Message
                     </button>
                 </form>
+
+
+
             </div>
             <div class="col-span-2">
                 <h2 class="text-[45px] font-bold">Know More</h2>
