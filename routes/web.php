@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminContact;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\AdminGalleryController;
 use App\Http\Controllers\AdminVideoController;
+use App\Http\Controllers\AdminGalleryController;
 // use App\Models\Post;
 
 
@@ -12,6 +13,10 @@ use App\Http\Controllers\AdminVideoController;
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+Route::get('/admin-contact', [AdminContact::class, 'index'])->name('admin-contact');
+
 
 
 Route::prefix('admin-gallery')->middleware(['auth', 'verified'])->name('admin-gallery.')->group(function () {
@@ -34,12 +39,8 @@ Route::prefix('admin-videos')->middleware(['auth', 'verified'])->name('admin-vid
     Route::delete('/{video}', [AdminVideoController::class, 'destroy'])->name('destroy');
 });
 
-
-// Authenticated routes
-Route::middleware('auth')->group(function () {
-
-
-    // Profile routes
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile'); // ← this line
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
