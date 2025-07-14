@@ -2,7 +2,7 @@
 
 @section('body')
     <main class="p-6 max-w-2xl mx-auto bg-white rounded shadow">
-        <h2 class="text-2xl font-bold mb-4">✏️ Edit Gallery Item</h2>
+        <h2 class="text-2xl font-bold mb-4">Edit Gallery Item</h2>
 
         @if ($errors->any())
             <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
@@ -16,14 +16,13 @@
 
         <form method="POST" action="{{ route('admin-gallery.update', $gallery->id) }}" enctype="multipart/form-data">
 
-
             @csrf
             @method('PUT')
 
             <div class="mb-4">
-            <label class="block text-gray-700 font-semibold mb-1">Title (optional)</label>
-            <input type="text" name="title" value="{{ old('title', $gallery->title) }}"
-            class="w-full border border-gray-300 p-2 rounded">
+                <label class="block text-gray-700 font-semibold mb-1">Title (optional)</label>
+                <input type="text" name="title" value="{{ old('title', $gallery->title) }}"
+                    class="w-full border border-gray-300 p-2 rounded">
             </div>
 
 

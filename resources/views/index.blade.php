@@ -43,6 +43,25 @@
                                 </button>
                             </form>
                         </div>
+
+
+                        <div class="flex flex-wrap gap-2">
+                            <a href="{{ route('admin-videos.edit', $video->id) }}"
+                                class="inline-block bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 transition text-xs font-semibold shadow-sm">
+                                Edit
+                            </a>
+
+                            <form action="{{ route('admin-videos.destroy', $video->id) }}" method="POST"
+                                onsubmit="return confirm('Delete this video?')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"
+                                    class="inline-block bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 transition text-xs font-semibold shadow-sm">
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
+
                     </div>
                 </div>
             </div>
