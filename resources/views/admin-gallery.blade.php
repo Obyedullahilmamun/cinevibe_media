@@ -42,7 +42,7 @@
                             <td class="px-3 py-3">
                                 <img src="{{ asset($gallery->image_path) }}" alt="{{ $gallery->title ?? 'Gallery Image' }}"
                                     class="h-24 w-36 rounded-md object-cover border border-gray-200 shadow-sm">
-                                <!-- Changed from w-24 to w-36 -->
+
                             </td>
                             <td class="px-3 py-3">
                                 <div class="flex space-x-2">

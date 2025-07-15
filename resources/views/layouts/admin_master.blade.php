@@ -18,11 +18,11 @@
 
         <!-- Sidebar -->
         <aside class="w-64 bg-white shadow-md hidden md:flex flex-col">
-
             <div class="h-20 flex items-center justify-center border-b space-x-4">
-                <img src="{{ asset('images/logo.webp') }}" alt="Logo" class="h-17 w-17 object-contain">
+                <a href="{{ url('/') }}">
+                    <img src="{{ asset('images/logo.webp') }}" alt="Cinevibe Logo">
+                </a>
             </div>
-
 
             <nav class="flex-1 mt-4 space-y-2 px-4">
                 <a href="{{ route('dashboard') }}"
@@ -51,7 +51,7 @@
         <div class="flex-1 flex flex-col">
 
             <!-- Topbar -->
-            <header class="bg-white shadow-sm h-16 flex items-center justify-between px-6 border-b">
+            <header class="bg-white shadow-sm h-16 flex items-center justify-between px-6 py-4 border-b">
                 <div class="text-xl font-semibold text-gray-800">Dashboard</div>
 
                 <div class="relative">
@@ -85,7 +85,6 @@
                     </div>
                 </div>
             </header>
-
             @yield('body')
         </div>
     </div>
