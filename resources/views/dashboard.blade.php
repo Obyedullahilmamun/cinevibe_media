@@ -1,37 +1,3 @@
-{{-- @extends('layouts.admin_master')
-@section('body')
-    <!-- Main Section -->
-    <main class="flex-1 overflow-y-auto p-6 bg-gray-50 min-h-screen">
-        <!-- Cards Section -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-            <div
-                class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300 ease-in-out">
-                <h2 class="text-gray-600 text-base font-semibold mb-1 uppercase tracking-wide">Total Gallery</h2>
-                <p class="text-3xl font-bold text-blue-600">1,024</p>
-            </div>
-
-            <div
-                class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300 ease-in-out">
-                <h2 class="text-gray-600 text-base font-semibold mb-1 uppercase tracking-wide">Total Videos</h2>
-                <p class="text-3xl font-bold  text-blue-600">245</p>
-            </div>
-
-            <div
-                class="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300 ease-in-out">
-                <h2 class="text-gray-600 text-base font-semibold mb-1 uppercase tracking-wide">Total Form Messages</h2>
-                <p class="text-3xl font-bold  text-blue-600">7</p>
-            </div>
-        </div>
-
-        <!-- Welcome Message -->
-        <div class="mt-8 bg-white p-6 rounded-xl shadow-lg border border-gray-100 text-gray-800 text-lg tracking-wide">
-            ✅ You're logged in! Welcome to your dashboard.
-        </div>
-    </main>
-@endsection --}}
-
-
 @extends('layouts.admin_master')
 @section('body')
     <div class="p-6 bg-gray-50 min-h-screen">

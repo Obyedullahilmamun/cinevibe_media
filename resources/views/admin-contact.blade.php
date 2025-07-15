@@ -76,5 +76,7 @@
                 }
             }
         </style>
+        <!-- Spacer for bottom padding -->
+        <div class="py-8 sm:py-12"></div>
     </main>
 @endsection
