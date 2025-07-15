@@ -107,12 +107,12 @@
                     <div id="userDropdown"
                         class="absolute right-0 mt-2 w-44 bg-white rounded-md shadow-xl border hidden z-50 overflow-hidden transition-all duration-150">
                         <a href="{{ route('profile.edit') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-600 hover:text-white transition-all duration-150">Profile</a>
 
                         <form id="logout-form" method="POST" action="{{ route('logout') }}">
                             @csrf
                             <button type="submit"
-                                class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-blue-600 hover:text-white transition-all duration-150">
                                 Log Out</button>
                         </form>
                     </div>

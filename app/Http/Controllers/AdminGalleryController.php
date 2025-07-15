@@ -7,12 +7,17 @@ use App\Models\Gallery;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
+
+
+
 class AdminGalleryController extends Controller
 {
     public function index()
     {
-        $galleries = Gallery::latest()->get();
+        $galleries = Gallery::latest()->paginate(10);
         return view('admin-gallery', compact('galleries'));
+        // $galleries = Gallery::latest()->get();
+        // return view('admin-gallery', compact('galleries'));
     }
 
     public function create()

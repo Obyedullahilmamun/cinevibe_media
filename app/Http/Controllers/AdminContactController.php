@@ -10,7 +10,7 @@ class AdminContactController extends Controller
     // Show list of all messages
     public function index()
     {
-        $contacts = Contact::latest()->get();
+        $contacts = Contact::latest()->paginate(10);
         return view('admin-contact', compact('contacts'));
     }
 

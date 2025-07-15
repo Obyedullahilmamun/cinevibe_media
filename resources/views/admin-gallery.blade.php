@@ -11,6 +11,12 @@
             </a>
         </div>
 
+        <!-- Pagination -->
+        <div class="w-full flex justify-end mb-4">
+            {{ $galleries->links('pagination::tailwind') }}
+        </div>
+
+
         <!-- Flash Message -->
         @if (session('success'))
             <div class="bg-green-50 border border-green-400 text-green-700 px-4 py-3 rounded-md mb-6 shadow-sm">

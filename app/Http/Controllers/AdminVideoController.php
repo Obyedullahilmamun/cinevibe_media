@@ -9,7 +9,7 @@ class AdminVideoController extends Controller
 {
     public function index()
     {
-        $videos = Video::latest()->get();
+        $videos = Video::latest()->paginate(10);
         return view('videos.index', compact('videos'));
     }
 
