@@ -34,7 +34,7 @@
 
             <div class="mb-4">
                 <label class="block text-gray-700 font-semibold mb-1">Current Image</label>
-                <img src="{{ asset('/' . $gallery->image_path) }}" class="w-40 h-40 object-cover rounded mb-2"
+                <img src="{{ asset('/' . $gallery->image_path) }}" class="w-full h-40 object-cover rounded mb-2"
                     alt="Gallery Image">
             </div>
 

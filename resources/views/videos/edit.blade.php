@@ -36,7 +36,7 @@
             <!-- Current Video Preview -->
             <div class="mb-4">
                 <label class="block text-gray-700 font-semibold mb-1">Current Video</label>
-                <iframe class="w-full h-48" src="https://www.youtube.com/embed/{{ $video->video_path }}" frameborder="0"
+                <iframe class="w-full h-40" src="https://www.youtube.com/embed/{{ $video->video_path }}" frameborder="0"
                     allowfullscreen></iframe>
             </div>
 
