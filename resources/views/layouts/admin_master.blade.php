@@ -16,37 +16,6 @@
 <body class="bg-gray-100 font-sans antialiased">
     <div class="flex h-screen overflow-hidden">
 
-        <!-- Sidebar -->
-        {{-- <aside class="w-64 bg-white shadow-md hidden md:flex flex-col">
-            <div class="h-20 flex items-center justify-center border-b space-x-4">
-                <a href="{{ url('/') }}">
-                    <img src="{{ asset('images/logo.webp') }}" alt="Cinevibe Logo">
-                </a>
-            </div>
-
-            <nav class="flex-1 mt-4 space-y-2 px-4">
-                <a href="{{ route('dashboard') }}"
-                    class="block py-2.5 px-4 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">
-                    Dashboard
-                </a>
-
-                <a href="{{ route('admin-gallery.index') }}"
-                    class="block py-2.5 px-4 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">
-                    Gallery
-                </a>
-
-                <a href="{{ route('admin-videos.index') }}"
-                    class="block py-2.5 px-4 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">
-                    Videos
-                </a>
-
-                <a href="{{ route('admin.contact') }}"
-                    class="block py-2.5 px-4 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition">
-                    Contact Submissions
-                </a>
-            </nav>
-        </aside> --}}
-
         <aside class="w-64 bg-[#1e293b] text-white hidden md:flex flex-col shadow-xl">
             <!-- Logo -->
             <div class="h-20 flex items-center justify-center border-b border-slate-700 bg-[#0f172a]">
@@ -58,27 +27,34 @@
             <!-- Navigation -->
             <nav class="flex-1 mt-4 space-y-2 px-4 text-sm font-medium">
                 <a href="{{ route('dashboard') }}"
-                    class="block py-2.5 px-4 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-150">
+                    class="block py-2.5 px-4 rounded-lg transition-all duration-150 
+                  hover:bg-blue-400 hover:text-white 
+                  {{ request()->routeIs('dashboard') ? 'bg-blue-600 text-white' : '' }}">
                     Dashboard
                 </a>
 
                 <a href="{{ route('admin-gallery.index') }}"
-                    class="block py-2.5 px-4 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-150">
+                    class="block py-2.5 px-4 rounded-lg transition-all duration-150 
+                  hover:bg-blue-400 hover:text-white 
+                  {{ request()->routeIs('admin-gallery.index') ? 'bg-blue-600 text-white' : '' }}">
                     Gallery
                 </a>
 
                 <a href="{{ route('admin-videos.index') }}"
-                    class="block py-2.5 px-4 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-150">
+                    class="block py-2.5 px-4 rounded-lg transition-all duration-150 
+                  hover:bg-blue-400 hover:text-white 
+                  {{ request()->routeIs('admin-videos.index') ? 'bg-blue-600 text-white' : '' }}">
                     Videos
                 </a>
 
                 <a href="{{ route('admin.contact') }}"
-                    class="block py-2.5 px-4 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-150">
+                    class="block py-2.5 px-4 rounded-lg transition-all duration-150 
+                  hover:bg-blue-400 hover:text-white 
+                  {{ request()->routeIs('admin.contact') ? 'bg-blue-600 text-white' : '' }}">
                     Contact Submissions
                 </a>
             </nav>
         </aside>
-
 
         <!-- Main Content -->
         <div class="flex-1 flex flex-col">
