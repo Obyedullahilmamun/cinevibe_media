@@ -17,7 +17,7 @@
     <div class="flex h-screen overflow-hidden">
 
         <!-- Sidebar -->
-        <aside class="w-64 bg-white shadow-md hidden md:flex flex-col">
+        {{-- <aside class="w-64 bg-white shadow-md hidden md:flex flex-col">
             <div class="h-20 flex items-center justify-center border-b space-x-4">
                 <a href="{{ url('/') }}">
                     <img src="{{ asset('images/logo.webp') }}" alt="Cinevibe Logo">
@@ -45,7 +45,40 @@
                     Contact Submissions
                 </a>
             </nav>
+        </aside> --}}
+
+        <aside class="w-64 bg-[#1e293b] text-white hidden md:flex flex-col shadow-xl">
+            <!-- Logo -->
+            <div class="h-20 flex items-center justify-center border-b border-slate-700 bg-[#0f172a]">
+                <a href="{{ url('/') }}">
+                    <img src="{{ asset('images/logo.webp') }}" alt="Cinevibe Logo" class="h-10 w-auto object-contain">
+                </a>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 mt-4 space-y-2 px-4 text-sm font-medium">
+                <a href="{{ route('dashboard') }}"
+                    class="block py-2.5 px-4 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-150">
+                    Dashboard
+                </a>
+
+                <a href="{{ route('admin-gallery.index') }}"
+                    class="block py-2.5 px-4 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-150">
+                    Gallery
+                </a>
+
+                <a href="{{ route('admin-videos.index') }}"
+                    class="block py-2.5 px-4 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-150">
+                    Videos
+                </a>
+
+                <a href="{{ route('admin.contact') }}"
+                    class="block py-2.5 px-4 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-150">
+                    Contact Submissions
+                </a>
+            </nav>
         </aside>
+
 
         <!-- Main Content -->
         <div class="flex-1 flex flex-col">
