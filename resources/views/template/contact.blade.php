@@ -39,8 +39,6 @@
                     </button>
                 </form>
 
-
-
             </div>
             <div class="col-span-2">
                 <h2 class="text-[45px] font-bold">Know More</h2>

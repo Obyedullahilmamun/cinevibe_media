@@ -2,23 +2,21 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminVideoController;
+use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\AdminGalleryController;
-// use App\Models\Post;
+use App\Http\Controllers\AdminDashboardController;
 
 
 // Dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+});
 
 
 // Route::get('/admin-contact', [AdminContactController::class, 'index'])->name('admin-contact');
 Route::get('/admin-contact', [AdminContactController::class, 'index'])->name('admin.contact');
-
-
 
 Route::prefix('admin-gallery')->middleware(['auth', 'verified'])->name('admin-gallery.')->group(function () {
     Route::get('/', [AdminGalleryController::class, 'index'])->name('index');
@@ -28,8 +26,6 @@ Route::prefix('admin-gallery')->middleware(['auth', 'verified'])->name('admin-ga
     Route::put('/{gallery}', [AdminGalleryController::class, 'update'])->name('update');
     Route::delete('/{gallery}', [AdminGalleryController::class, 'destroy'])->name('destroy');
 });
-
-
 
 Route::prefix('admin-videos')->middleware(['auth', 'verified'])->name('admin-videos.')->group(function () {
     Route::get('/', [AdminVideoController::class, 'index'])->name('index');
@@ -41,7 +37,6 @@ Route::prefix('admin-videos')->middleware(['auth', 'verified'])->name('admin-vid
 });
 
 
-
 // Public contact form submission
 Route::post('/contact-submit', [AdminContactController::class, 'store'])->name('contact.store');
 
@@ -51,8 +46,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin-contact/{id}', [AdminContactController::class, 'show'])->name('admin.contact.show');
     Route::delete('/admin-contact/{id}', [AdminContactController::class, 'destroy'])->name('admin.contact.delete');
 });
-
-
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
