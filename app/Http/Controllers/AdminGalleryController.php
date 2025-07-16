@@ -30,7 +30,7 @@ class AdminGalleryController extends Controller
         $validated = $request->validate([
             'title' => 'nullable|string|max:255',
             'description' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:6144', // Adjust the 'max' value to customize
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:1024', // Adjust the 'max' value to customize
         ]);
 
         $file = $request->file('image');
@@ -64,7 +64,7 @@ class AdminGalleryController extends Controller
         $validated = $request->validate([
             'title' => 'nullable|string|max:255',
             'description' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:6144', // Adjust the 'max' value to customize
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:1024', // Adjust the 'max' value to customize
         ]);
 
         if ($request->hasFile('image')) {
