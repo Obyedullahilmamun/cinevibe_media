@@ -148,7 +148,7 @@ class HomeController extends Controller
 
     public function socialworkers()
     {
-        return view('template.singers-musician');
+        return view('template.social-workers');
     }
 
     public function songwriting()

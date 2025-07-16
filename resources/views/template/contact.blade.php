@@ -1,7 +1,8 @@
 @extends('layouts.master')
 @section('body')
     <!-- Breadcrumb -->
-    <section class="bg-hero-pattern bg-cover bg-center">
+    {{-- <section class="bg-hero-pattern bg-cover bg-center"> --}}
+    <section class="bg-cover bg-center" style="background-image: url('{{ asset('assets/img/page-banner/about.jpg') }}');">
         <div class=" text-white flex flex-col items-center bg-black bg-opacity-70 md:py-20 py-10">
             <h1 class="text-[30px] font-bold">Contact</h1>
             <div class="flex items-center">

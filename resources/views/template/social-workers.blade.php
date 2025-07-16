@@ -1,7 +1,8 @@
 @extends('layouts.master')
 @section('body')
     <!-- Breadcrumb -->
-    <section class="bg-hero-pattern bg-cover bg-center">
+    {{-- <section class="bg-hero-pattern bg-cover bg-center"> --}}
+    <section class="bg-cover bg-center" style="background-image: url('{{ asset('assets/img/page-banner/about.jpg') }}');">
         <div class=" text-white flex flex-col items-center bg-black bg-opacity-70 md:py-20 py-10">
             <h1 class="text-[30px] font-bold">Social Workers</h1>
             <div class="flex items-center">
@@ -17,7 +18,8 @@
         <div class="max-w-screen-xl mx-auto px-4 md:pt-20 pt-10 grid md:grid-cols-3 grid-cols-1">
             <div class="col-span-2">
                 <h2 class="font-bold text-[25px] text-white mb-5 uppercase">Social Workers</h2>
-                <img class="h-auto w-full" src="assets/img/celibrity-management/social-worker.jpg" alt="social-worker">
+                <img class="h-auto w-full" src="{{ asset('assets/img/celibrity-management/social-worker.jpg') }}"
+                    alt="social-worker">
                 <div class="w-full my-5 mb-10">
                     <p class="text-white text-justify mb-3">Social work is a dynamic, people-focused profession that
                         drives meaningful social progress across communities. It plays
@@ -35,11 +37,6 @@
                         contributions go far beyond
                         theory—they bring lasting transformation where it's needed most.</p>
                 </div>
-                <!-- <div class="grid sm:grid-cols-3 grid-cols-1 gap-3">
-                            <img src="assets/img/celibrity-management/social-worker.jpg" alt="social-worker">
-                            <img src="assets/img/celibrity-management/social-worker.jpg" alt="social-worker">
-                            <img src="assets/img/celibrity-management/social-worker.jpg" alt="social-worker">
-                        </div> -->
             </div>
             <div class="w-full">
                 <h2 class="font-bold text-[25px] text-white mb-5 md:ml-5">SERVICES</h2>

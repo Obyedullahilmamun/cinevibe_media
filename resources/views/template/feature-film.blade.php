@@ -1,7 +1,8 @@
 @extends('layouts.master')
 @section('body')
     <!-- Breadcrumb -->
-    <section class="bg-hero-pattern bg-cover bg-center">
+    {{-- <section class="bg-hero-pattern bg-cover bg-center"> --}}
+    <section class="bg-cover bg-center" style="background-image: url('{{ asset('assets/img/page-banner/about.jpg') }}');">
         <div class="text-white flex flex-col items-center bg-black bg-opacity-70 md:py-20 py-10">
             <h1 class="text-[30px] font-bold">Feature Films</h1>
             <div class="flex items-center">
@@ -17,7 +18,8 @@
         <div class="max-w-screen-xl mx-auto px-4 md:pt-20 pt-10 grid md:grid-cols-3 grid-cols-1">
             <div class="col-span-2">
                 <h2 class="font-bold text-[25px] text-white mb-5 uppercase">Feature Film</h2>
-                <img class="h-auto w-full" src="assets/img/film-production/feature-film.jpg" alt="feature-film">
+                <img class="h-auto w-full" src="{{ asset('assets/img/film-production/feature-film.jpg') }}"
+                    alt="feature-film">
                 <div class="w-full my-5">
                     <p class="text-white text-justify mb-3">Cinevibe Media is a full-service film production company
                         located in Dhaka. We help you share your story with the world

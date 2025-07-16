@@ -483,7 +483,7 @@
             class="text-white py-12 px-6 max-w-screen-xl mx-auto px-4 grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-10">
             <div>
                 <a href="/">
-                    <img src="assets/img/logo.webp" alt="cvm logo" class="h-12 mb-4 inline">
+                    <img src="{{ asset('assets/img/logo.webp') }}" alt="cvm logo" class="h-12 mb-4 inline">
                 </a>
                 <p class="text-sm leading-relaxed">
                     Cinevibe Media is a complete production house which covers everything
@@ -627,7 +627,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <!-- Custom Script -->
-    <script src="assets/js/script.js"></script>
+    {{-- <script src="assets/js/script.js"></script> --}}
+    <script src="{{ asset('assets/js/script.js') }}"></script>
+
 
 </body>
 

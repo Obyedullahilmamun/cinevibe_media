@@ -3,7 +3,8 @@
     <!-- Hero section slider -->
     <header>
         <div class="slider-hero w-full">
-            <div class="bg-no-repeat bg-cover bg-center" style="background-image: url('assets/img/index/welcome.jpg');">
+            <div class="bg-no-repeat bg-cover bg-center"
+                style="background-image: url('{{ asset('assets/img/index/welcome.jpg') }}');">
                 <div
                     class="px-4 flex flex-col justify-center items-center gap-5 lg:py-[250px] md:py-[200px] sm:py-[150px] py-[100px] bg-black bg-opacity-40">
                     <h1 class="md:text-[80px] text-[35px] text-white font-bold uppercase text-center leading-tight">
@@ -16,7 +17,7 @@
                 </div>
             </div>
             <div class="bg-no-repeat bg-cover bg-center"
-                style="background-image: url('assets/img/film-production/feature-film.jpg');">
+                style="background-image: url('{{ asset('assets/img/film-production/feature-film.jpg') }}');">
                 <div
                     class="px-4 flex flex-col justify-center items-center gap-5 lg:py-[250px] md:py-[200px] sm:py-[150px] py-[100px] bg-black bg-opacity-40">
                     <h1 class="md:text-[80px] text-[35px] text-white font-bold uppercase text-center leading-tight">
@@ -29,9 +30,9 @@
                     </div>
                 </div>
             </div>
-       
+
             <div class="bg-no-repeat bg-cover bg-center"
-                style="background-image: url('assets/img/celibrity-management/actors.jpg');">
+                style="background-image: url('{{ asset('assets/img/celibrity-management/actors.jpg') }}');">
                 <div
                     class="px-4 flex flex-col justify-center items-center gap-5 lg:py-[250px] md:py-[200px] sm:py-[150px] py-[100px] bg-black bg-opacity-40">
                     <h1 class="md:text-[80px] text-[35px] text-white font-bold uppercase text-center leading-tight">
@@ -45,7 +46,7 @@
                 </div>
             </div>
             <div class="bg-no-repeat bg-cover bg-center"
-                style="background-image: url('assets/img/celibrity-management/youtuber/1.jpg');">
+                style="background-image: url('{{ asset('assets/img/celibrity-management/youtuber/1.jpg') }}');">
                 <div
                     class="px-4 flex flex-col justify-center items-center gap-5 lg:py-[250px] md:py-[200px] sm:py-[150px] py-[100px] bg-black bg-opacity-40">
                     <h1 class="md:text-[80px] text-[35px] text-white font-bold uppercase text-center leading-tight">
@@ -117,7 +118,7 @@
                         </p>
                     </div>
                 </div>
-                <img class="w-full mb-5" src="assets/img/about/1.jpg" alt="about">
+                <img class="w-full mb-5" src="{{ asset('assets/img/about/1.jpg') }}" alt="about">
             </div>
             <div class="text-white">
                 <h3 class="text-[28px] mb-3 font-semibold">How we could work together</h3>
@@ -160,7 +161,7 @@
         <h2 class="text-white md:text-[45px] text-[30px] text-center uppercase mb-5">Productions</h2>
         <div class="max-w-screen-xl mx-auto px-4 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5">
             <div class="border border-gray-700 px-5 py-10 rounded-lg">
-                <img class="w-full mb-5" src="assets/img/film-production/feature-film.jpg" alt="production">
+                <img class="w-full mb-5" src="{{ asset('assets/img/film-production/feature-film.jpg') }}" alt="production">
                 <p class="text-[#C1AB65] uppercase text-sm mb-5">Cinevibe Media</p>
                 <h3 class="text-[20px] text-white font-semibold">Film Production</h3>
                 <p class="text-white text-justify line-clamp-3">Cinevibe Media is a full-service film production
@@ -175,7 +176,8 @@
                 <a class="text-[#C1AB65]" href="{{ route('feature-film') }}">Read More...</a>
             </div>
             <div class="border border-gray-700 px-5 py-10 rounded-lg">
-                <img class="w-full mb-5" src="assets/img/celibrity-management/youtuber/1.jpg" alt="production">
+                <img class="w-full mb-5" src="{{ asset('assets/img/celibrity-management/youtuber/1.jpg') }}"
+                    alt="production">
                 <p class="text-[#C1AB65] uppercase text-sm mb-5">Cinevibe Media</p>
                 <h3 class="text-[20px] text-white font-semibold">Youtuber</h3>
                 <p class="text-white text-justify line-clamp-3">Whether you're just starting out or already creating
@@ -190,7 +192,7 @@
                 <a class="text-[#C1AB65]" href="{{ route('youtuber') }}">Read More...</a>
             </div>
             <div class="border border-gray-700 px-5 py-10 rounded-lg">
-                <img class="w-full mb-5" src="assets/img/event-management/birthday.jpg" alt="production">
+                <img class="w-full mb-5" src="{{ asset('assets/img/event-management/birthday.jpg') }}" alt="production">
                 <p class="text-[#C1AB65] uppercase text-sm mb-5">Cinevibe Media</p>
                 <h3 class="text-[20px] text-white font-semibold">Birthday / Party Planning</h3>
                 <p class="text-white text-justify line-clamp-3">What could be more exciting for a child than their
@@ -205,7 +207,10 @@
     </section>
 
     <!-- Testimonials -->
-    <section class="bg-testimonial bg-cover bg-center">
+    {{-- <section class="bg-testimonial bg-cover bg-center"> --}}
+    <section class="bg-cover bg-center"
+        style="background-image: url('{{ asset('assets/img/index/testimonial.jpg') }}');">
+
         <div class="bg-black bg-opacity-80 md:py-20 py-10">
             <span class="text-[#C1AB65] text-[18px] text-center block uppercase">The Cinevibe Media</span>
             <h2 class="text-white md:text-[45px] text-[30px] text-center uppercase">What Customer's Say</h2>
