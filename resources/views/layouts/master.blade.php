@@ -5,7 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cinevibe Media - Movies, TV and Celebrities</title>
-    <link rel="shortcut icon" href="/assets/img/logo.webp" type="image/png" />
+    {{-- <link rel="shortcut icon" href="/assets/img/logo.webp" type="image/png" /> --}}
+    <link rel="shortcut icon" href="{{ asset('assets/img/logo.webp') }}" type="image/png" />
+
     <link rel="canonical" href="https://cinevibemedia.com/" />
     <meta name="release-date" content="2025-07-05" />
     <meta name="description"
@@ -22,7 +24,8 @@
     <meta name="twitter:title" content="Cinevibe Media - Movies, TV and Celebrities" />
     <meta name="twitter:description"
         content="Cinevibe Media is a full-service production house offering film, music, photography, acting training, celebrity & event management, interviews, and brand promotion." />
-    <meta name="twitter:image" content="/assets/img/logo.webp" />
+    {{-- <meta name="twitter:image" content="/assets/img/logo.webp" /> --}}
+    <meta name="twitter:image" content="{{ asset('assets/img/logo.webp') }}" />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="EN" />
     <script type="application/ld+json">
@@ -92,9 +95,11 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-    <link rel="stylesheet" href="assets/css/style.css">
+    {{-- <link rel="stylesheet" href="assets/css/style.css"> --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="assets/js/tw-configue.js"></script>
+    {{-- <script src="assets/js/tw-configue.js"></script> --}}
+    <script src="{{ asset('assets/js/tw-configue.js') }}"></script>
 </head>
 
 <body class="font-josefin">
