@@ -1,31 +1,12 @@
 {
   "version": 2,
-  "outputDirectory": "public",
+  "outputDirectory": "public", 
   "framework": null,
   "functions": {
     "api/index.php": {
-      "runtime": "vercel-php@0.6.2"
+      "runtime": "vercel-php@0.6.2" 
     }
   },
-  "excludeFiles": [
-    "tests/**",
-    "vendor/**", 
-    "!vendor/autoload.php", 
-    "node_modules/**",
-    ".git/**",
-    ".github/**",
-    "storage/framework/cache/**",
-    "storage/framework/views/**",
-    "storage/logs/**",
-    "storage/app/**",
-    "storage/debugbar/**",
-    "storage/testing/**",
-    "dist/**", 
-    "phpunit.xml",
-    "postCSS.config.js",
-    "tailwind.config.js",
-    "vite.config.js"
-  ],
   "routes": [
     {
       "src": "/(css|js|images|fonts|logo|videos|storage)/[^/.]+\\.(css|js|ico|jpg|jpeg|png|gif|svg|webp|ttf|woff|woff2|eot|mp4|webm|avi|mkv|mov|mp3|ogg|wav|pdf)",
